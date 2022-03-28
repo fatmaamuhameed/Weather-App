@@ -28,7 +28,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/@fortawesome/fontawesome-free/js/all.min.js"
             ],
             "scripts": []
           },
@@ -124,5 +126,8 @@
       }
     }
   },
-  "defaultProject": "weather-App"
+  "defaultProject": "weather-App",
+  "cli": {
+    "analytics": "cbaa22f4-cedd-42fd-b800-0df7d4be70f6"
+  }
 }

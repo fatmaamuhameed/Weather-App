@@ -1,0 +1,60 @@
+<section>
+    <div class="container">
+        <div class="vh-100 d-flex justify-content-center align-items-center">
+            <div class="box-landing text-center w-75 p-5">
+                <div class="text-center row justify-content-between">
+                    <div class="col-md-4">
+                        <h2 style="font-size: 2.5rem ; color: white;" class="p-4">{{countryName}}</h2>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            <input class="form-control" (change)="chooseCity($event)" autocomplete="off" list="datalistOptions" id="exampleDataList"
+                            placeholder="search for weather for cities..">
+                        <datalist id="datalistOptions">
+                            <option *ngFor="let city of CitiesByCountry" [value]="city" >
+                        </datalist>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-primary" (click)="searchWeatherCity()"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                </div>
+                <div>
+                    <div class="row d-flex justify-content-center info-current-weather">
+                        <div class="col-md-3">
+                            <h5>{{tempC}}°</h5>
+                        </div>
+                        <div class="col-md-3">
+                            <!-- <img src="http://cdn.worldweatheronline.com/images/wsymbols01_png_64/wsymbol_0008_clear_sky_night.png" alt=""> -->
+                            <h5>{{describeWeather}}</h5>
+                        </div>
+                    </div>
+
+                    <div class="brdr mt-2">
+
+                    </div>
+                    <div class="row justify-content-center mt-2 some-information">
+                        <div class="col-md-3">
+                            <div>
+                                <h6> <i class="fas fa-eye"></i> Visibilty</h6>
+                                <span>{{visibilty}} km</span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div>
+                                <h6> <i class="fas fa-wind"></i> Wind Speed</h6>
+                                <span>{{windSpeed}} km/h</span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <h6><i class="fa-solid fa-cloud"></i> Humidity</h6>
+                            <span>{{humidity}} %</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

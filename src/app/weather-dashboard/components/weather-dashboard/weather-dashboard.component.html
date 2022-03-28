@@ -1,0 +1,111 @@
+<section>
+    <div class="container">
+        <div *ngIf="!errorrMessage">
+            <div class="box-landing text-center w-100 p-5">
+                <div class="text-center row justify-content-between">
+                    <div class="col-md-4">
+                        <h2 style="font-size: 2.5rem ; color: white;" class="p-4">{{cityName}}</h2>
+                    </div>
+                </div>
+                <div>
+                    <div class="row d-flex justify-content-center info-current-weather">
+                        <div class="col-md-3">
+                            <h5>{{tempC}}°</h5>
+                        </div>
+                        <div class="col-md-3">
+                            <!-- <img src="http://cdn.worldweatheronline.com/images/wsymbols01_png_64/wsymbol_0008_clear_sky_night.png" alt=""> -->
+                            <h5>{{describeWeather}} </h5>
+                        </div>
+                    </div>
+
+                    <div class="brdr mt-2">
+
+                    </div>
+                    <div class="row justify-content-center mt-2 some-information">
+                        <div class="col-md-3">
+                            <div>
+                                <h6> <i class="fas fa-eye"></i> Visibilty</h6>
+                                <span>{{visibilty}} km</span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div>
+                                <h6> <i class="fas fa-wind"></i> Wind Speed</h6>
+                                <span>{{windSpeed}} km/h</span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <h6><i class="fa-solid fa-cloud"></i> Humidity</h6>
+                            <span>{{humidity}} %</span>
+                        </div>
+                    </div>
+
+                    <div class="row mt-5 justify-content-between">
+                        <div class="col-md-4">
+                            <h6  style="color: #fcfff9;"><i class="fa-solid fa-calendar"></i> 14-Day Forecast</h6>
+                            <div class="brdr mt-2">
+                            </div>
+                            <div>
+                                <table class="table">
+                                    <tbody class="text-white">
+                                        <tr *ngFor="let day of forcastWeather">
+                                            <td>{{day.date}}</td>
+                                            <td>{{day.mintempC}}°</td>
+                                            <td>{{day.maxtempC}}°</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <div>
+                                        <h6  style="color: #fcfff9;">Search for historical weather</h6>
+                                        <input type="date" class="form-control" min="2008-01-07" [max]="todayDate"
+                                            (change)="getHistoricalDate($event)">
+                                        <div class="row justify-content-between mt-5" *ngIf="historicalWeather">
+                                            <div class="col-md-4">
+                                                <div class="average-temp">
+                                                    <i class="fa-solid fa-cloud icon-cloud"></i>
+                                                    <h6 class="icon-cloud">{{averageTempHistorical}}°</h6>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-8 historical-temp">
+                                                <span class="me-3">
+                                                    <i class="fa-solid fa-temperature-arrow-up"></i> {{maxTempHistorical}}°
+                                                </span>
+
+                                                <span>
+                                                    <i class="fa-solid fa-temperature-arrow-down"></i> {{minTempHistorical}}°
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                        </div>
+
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <h6 style="color: #fcfff9;">Climate average temperature during the year</h6>
+                        <div class="col-md-6 ">
+                            <div id="barChart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="errorrMessage">
+            <small class="text-danger fw-bold">{{errorMessageStr}}</small>
+        </div>
+    </div>
+</section>
